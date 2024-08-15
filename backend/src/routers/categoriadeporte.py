@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from backend.src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria
+from src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria
 from src.db.database import get_db
 from sqlalchemy.orm import Session
 from typing import List 
