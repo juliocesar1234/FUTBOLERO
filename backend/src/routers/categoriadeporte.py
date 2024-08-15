@@ -8,13 +8,13 @@ from src.models.categoria import catergoria_funciones
 router_cat = APIRouter(tags=["Caterogoria Deporte"])
 
 #CREAR 
-@router_cat.post('/crear_categorias')
+@router_cat.post('/crear_categoria')
 def crear_categoria(cat:ShowCat,db:Session = Depends(get_db)):
  catergoria_funciones.crear_usario(cat,db) 
  return {"Respuesta" : "Categoria creado satisfactoriamente"}
 
 #CONSULTAR TODOS
-@router_cat.get('/obtener_categoria_generales', response_model=List[ShowCat])
+@router_cat.get('/obtener_categoria_general', response_model=List[ShowCat])
 def obtener_categoria_general(db:Session = Depends(get_db)):
    data = catergoria_funciones.obtener_categori_gr(db)
    return data
