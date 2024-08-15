@@ -8,13 +8,13 @@ from app.repository import catergoriadep
 router_cat = APIRouter(tags=["Caterogoria Deporte"])
 
 #CREAR 
-@router_cat.post('/crear_categoria')
+@router_cat.post('/crear_categorias')
 def crear_categoria(cat:ShowCat,db:Session = Depends(get_db)):
  catergoriadep.crear_usario(cat,db) 
  return {"Respuesta" : "Categoria creado satisfactoriamente"}
 
 #CONSULTAR TODOS
-@router_cat.get('/obtener_categoria_general', response_model=List[ShowCat])
+@router_cat.get('/obtener_categoria_generales', response_model=List[ShowCat])
 def obtener_categoria_general(db:Session = Depends(get_db)):
    data = catergoriadep.obtener_categori_gr(db)
    return data
