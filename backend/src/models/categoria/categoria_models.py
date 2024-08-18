@@ -12,7 +12,7 @@ class cat_deport(Base):
     observacion= Column(String)
     registro = Column(DateTime,default=datetime.now,onupdate=datetime.now)
     estado= Column(Boolean,default=True)
-    # diciplina = relationship("Perfil_Diciplina",backref="Categoria_Deporte",cascade="delete,merge")
+    diciplina = relationship("perfil_diciplina",backref="Categoria_Deporte",cascade="delete,merge")
 
 
 class perfil_diciplina(Base):

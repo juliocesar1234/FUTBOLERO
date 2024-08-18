@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria
+from src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria, Perf_diciplina
 from src.db.database import get_db
 from sqlalchemy.orm import Session
 from typing import List 
@@ -34,7 +34,13 @@ def eliminar_categoria(cat_id :int,db:Session = Depends(get_db)):
 
 #ACTUALIZAR 
 @router_cat.patch('/categoria_actualizar/{cat_id}')
-def actualiza_categorias(cat_id :int ,updatecategoria:UpdateCategoria,db:Session = Depends(get_db)):
+def actualizar_categorias(cat_id :int ,updatecategoria:UpdateCategoria,db:Session = Depends(get_db)):
    act = catergoria_funciones.actualizar_categoria(cat_id,db,updatecategoria)
    return act
 
+#ACTUALIZAR
+#CREAR PERFIL DICIPLINA
+@router_cat.post('/perfil_diciplina')
+def crear_diciplina(pdic:Perf_diciplina,db:Session = Depends(get_db)):
+ catergoria_funciones.crear_perfil_diciplina(pdic,db) 
+ return {"Respuesta" : "Perfil creado satisfactoriamente"}

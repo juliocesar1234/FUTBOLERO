@@ -23,3 +23,12 @@ class ShowCat(BaseModel):
     observacion: str
     class Config():
         orm_mode = True
+
+#AÑADIDO
+class Perf_diciplina(BaseModel):
+    categoria_id :int
+    diciplina : int
+    nombre_titulo: str
+    class Config():
+        orm_mode = True
+    
