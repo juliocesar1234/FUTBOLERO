@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from src.db import models
+from src import models
 
 # PROCESOS QUE INTERACTUAN CON LA BASE DE DATOS
 def crear_usario(cat,db:Session):
