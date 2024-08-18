@@ -17,11 +17,9 @@ class UpdateCategoria(BaseModel): #Actualiza
     observacion: str =None
     
 
-
 class ShowCat(BaseModel):
     nombre: str
     descripcion: str
     observacion: str
-    
     class Config():
         orm_mode = True
