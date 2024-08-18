@@ -1,0 +1,9 @@
+#comando para instalar requerimientos.txt
+pip install -r requirements.txt
+
+#comando para iniciar virtual env
+.\venv\scripts\activate
+.\venv\scripts\activate.ps1
+
+#comando para inicializar el servidor
+uvicorn src.main:app --reload

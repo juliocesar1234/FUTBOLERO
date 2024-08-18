@@ -14,3 +14,4 @@ SQLAlchemy==2.0.32
 starlette==0.37.2
 typing_extensions==4.12.2
 uvicorn==0.30.5
+exceptiongroup==1.2.2
