@@ -9,7 +9,7 @@ from src.models.privilegio.privilegio_models import Privilegio
 router_priv = APIRouter(tags=["Pivilegios"])
 
 #CREAR 
-@router_priv.post('/crear_privilegio')
+@router_priv.post('/crear_privilegios')
 def crear_privilegio(priv:PrivilegioData,db:Session = Depends(get_db)):
     nuevo_privilegio = Privilegio(**priv.model_dump())
     db.add(nuevo_privilegio)
