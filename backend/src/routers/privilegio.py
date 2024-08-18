@@ -6,7 +6,7 @@ from typing import List
 from src.models.privilegio.privilegio_models import Privilegio
 
 
-router_priv = APIRouter(tags=["Pivilegios"])
+router_priv = APIRouter(tags=["Privilegios"])
 
 #CREAR 
 @router_priv.post('/crear_privilegios')
