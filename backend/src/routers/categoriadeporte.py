@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria, Perf_diciplina
+from src.models.categoria.categoria_schemas import ShowCat,UpdateCategoria
 from src.db.database import get_db
 from sqlalchemy.orm import Session
 from typing import List 
@@ -10,7 +10,7 @@ router_cat = APIRouter(tags=["Caterogoria Deporte"])
 #CREAR 
 @router_cat.post('/crear_categoria')
 def crear_categoria(cat:ShowCat,db:Session = Depends(get_db)):
- catergoria_funciones.crear_usario(cat,db) 
+ catergoria_funciones.crear_categoria(cat,db) 
  return {"Respuesta" : "Categoria creado satisfactoriamente"}
 
 #CONSULTAR TODOS
@@ -38,9 +38,3 @@ def actualizar_categorias(cat_id :int ,updatecategoria:UpdateCategoria,db:Sessio
    act = catergoria_funciones.actualizar_categoria(cat_id,db,updatecategoria)
    return act
 
-#ACTUALIZAR
-#CREAR PERFIL DICIPLINA
-@router_cat.post('/perfil_diciplina')
-def crear_diciplina(pdic:Perf_diciplina,db:Session = Depends(get_db)):
- catergoria_funciones.crear_perfil_diciplina(pdic,db) 
- return {"Respuesta" : "Perfil creado satisfactoriamente"}

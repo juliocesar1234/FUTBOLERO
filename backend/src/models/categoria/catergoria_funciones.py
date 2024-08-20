@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from src.models.categoria.categoria_models import  cat_deport, perfil_diciplina
+from src.models.categoria.categoria_models import  cat_deport
 
 # PROCESOS QUE INTERACTUAN CON LA BASE DE DATOS
-def crear_usario(cat,db:Session):
+def crear_categoria(cat,db:Session):
   nueva_categoria = cat_deport(**cat.model_dump())
   db.add(nueva_categoria)
   db.commit()
@@ -32,13 +32,5 @@ def actualizar_categoria(cat_id,db:Session,updatecategoria):
          return {"Respuesta": "Categoria no encontrado!!"}
     categoria.update(updatecategoria.dict(exclude_unset=True))
     db.commit()
-    return {"Respuesta":"Categoria actualizada"}
+    return {"Respuesta":"Categoria actualizada"} 
 
-
-#ACTUALIZAR
-#CREAR DICIPLIA
-def crear_perfil_diciplina(pdic,db:Session):
-  nuevo_perfil = perfil_diciplina(**pdic.model_dump())
-  db.add(nuevo_perfil)
-  db.commit()
-  db.refresh(nuevo_perfil) 
