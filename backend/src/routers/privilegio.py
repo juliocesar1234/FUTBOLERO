@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from src.models.privilegio.privilegio_schema import PrivilegioData
+from src.models.privilegio.privilegio_schema import PrivilegioData,PrivilegioDataActualiza
 from src.db.database import get_db
 from sqlalchemy.orm import Session
 from typing import List 
@@ -46,7 +46,7 @@ def eliminar_categoria(priv_id :int,db:Session = Depends(get_db)):
 
 #ACTUALIZAR 
 @router_priv.patch('/actualizar_privilegio/{priv_id}')
-def actualiza_privilegio(priv_id :int ,updatepriv:PrivilegioData,db:Session = Depends(get_db)):
+def actualiza_privilegio(priv_id :int ,updatepriv:PrivilegioDataActualiza,db:Session = Depends(get_db)):
    
     privilegio = db.query(Privilegio).filter(Privilegio.id == priv_id) 
     if not privilegio.first():
