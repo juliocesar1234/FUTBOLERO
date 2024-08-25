@@ -15,11 +15,13 @@ class UpdateCategoria(BaseModel): #Actualiza
     nombre: str = None
     descripcion : str= None
     observacion: str =None
+    estado : int = None
     
 
 class ShowCat(BaseModel):
     nombre: str
     descripcion: str
     observacion: str
+    estado: int
     class Config():
         orm_mode = True
