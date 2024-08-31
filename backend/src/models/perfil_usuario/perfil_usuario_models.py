@@ -1,6 +1,6 @@
 from src.db.database import Base
 from sqlalchemy import Column,Integer,String,DECIMAL,FLOAT
-
+from sqlalchemy.orm import relationship
 
 class Perfil_usuario(Base):
 
@@ -16,3 +16,4 @@ class Perfil_usuario(Base):
     telefono = Column(Integer,nullable = False)
     id_usuario = Column(Integer,nullable = False)
     estado = Column(Integer,nullable = False)
+    detalle_diciplina = relationship("detalle_diciplina",backref="perfil_usuario",cascade="delete,merge")

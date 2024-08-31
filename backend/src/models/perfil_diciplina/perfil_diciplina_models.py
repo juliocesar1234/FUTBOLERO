@@ -1,7 +1,7 @@
 from src.db.database import Base
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.schema import ForeignKey
-
+from sqlalchemy.orm import relationship
 
 class perfil_diciplina(Base):
     __tablename__ = "perfil_diciplina"
@@ -10,3 +10,5 @@ class perfil_diciplina(Base):
     html_select = Column(String)
     nombre_titulo = Column(String)
     estado= Column(Boolean,default=True)
+    detalle_diciplina = relationship("detalle_diciplina",backref="perfil_diciplina",cascade="delete,merge")
+    
