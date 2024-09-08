@@ -6,10 +6,10 @@ from typing import List
 from src.models.video_perfil.video_perfil_models import Video_perfil
 
 
-router_vidper = APIRouter(tags=["Video_perfil"])
+router_vidper = APIRouter(tags=["Video_perfils"])
 
 #CREAR 
-@router_vidper.post('/crear_video_perfil')
+@router_vidper.post('/crear_video_perfils')
 def crear_video_perfil(priv:Video_perfilData,db:Session = Depends(get_db)):
     nuevo_video_perfil = Video_perfil(**priv.model_dump())
     db.add(nuevo_video_perfil)

@@ -1,8 +1,8 @@
 from src.db.database import Base
-from sqlalchemy import Column,Integer,String,DECIMAL,FLOAT
+from sqlalchemy import Column,Integer,String
 
 
-class Perfil_usuario(Base):
+class Video_perfil(Base):
 
     __tablename__ = 'video_perfil'
     id = Column(Integer,primary_key = True,nullable = False,autoincrement=True)
